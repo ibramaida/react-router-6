@@ -1,28 +1,29 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import "./server";
 
-import { Home, About, Vans, VanDetails } from "./pages";
+import { Home, About } from "./pages";
+import { Vans, VanDetails } from "./pages/Vans";
+import { HostLayout, Layout } from "./components";
+import { Dashboard, Income, Reviews } from "./pages/Host";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <header>
-        <Link className="site-logo" to="/">
-          #VanLife
-        </Link>
-        <nav>
-          <Link to="/about">About</Link>
-          <Link to="/vans">Vans</Link>
-        </nav>
-      </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetails />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetails />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="income" element={<Income />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
