@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
@@ -19,6 +17,12 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -46,6 +50,22 @@ header a {
 header a:hover {
   color: #161616;
   text-decoration: underline;
+}
+
+main {
+  margin-bottom: 84px;
+}
+
+footer {
+  background-color: #161616;
+  color: #aaaaaa;
+  height: 74px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-weight: 500;
 }
 
 .link-button {
@@ -231,8 +251,6 @@ i[class*="van-type-"] {
   padding: 7px 14px;
 }
 
-/* van details */
-
 .van-detail-container {
   padding: 27px;
 }
@@ -242,8 +260,8 @@ i[class*="van-type-"] {
   text-decoration: none;
 }
 
-.van-detail-container .back-button:visited {
-}
+/* .van-detail-container .back-button:visited {
+} */
 
 .van-detail-container .back-button span {
   text-decoration: underline;
@@ -285,8 +303,6 @@ i[class*="van-type-"] {
   font-size: 1.125rem;
 }
 
-/* host style */
-
 .host-nav {
   display: flex;
 }
@@ -302,4 +318,10 @@ i[class*="van-type-"] {
   color: #161616;
   text-decoration: underline;
   font-weight: 600;
+}
+
+.host-nav a.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #161616;
 }

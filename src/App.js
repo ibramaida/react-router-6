@@ -7,7 +7,13 @@ import "./server";
 import { Home, About } from "./pages";
 import { Vans, VanDetails } from "./pages/Vans";
 import { HostLayout, Layout } from "./components";
-import { Dashboard, Income, Reviews } from "./pages/Host";
+import {
+  Dashboard,
+  Income,
+  Reviews,
+  HostVans,
+  HostVanDetails,
+} from "./pages/Host";
 
 const App = () => {
   return (
@@ -22,6 +28,8 @@ const App = () => {
             <Route index element={<Dashboard />} />
             <Route path="reviews" element={<Reviews />} />
             <Route path="income" element={<Income />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetails />} />
           </Route>
         </Route>
       </Routes>
