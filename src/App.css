@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  outline: 1px solid red;
 }
 
 html,
@@ -28,23 +29,31 @@ body {
 header {
   height: 110px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   padding-block: 10px;
 }
 
 header .site-logo {
   color: black;
-  margin-right: auto;
+  /* margin-right: auto; */
   text-transform: uppercase;
   font-weight: 900;
   font-size: 25px;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 header a {
   text-decoration: none;
   color: #4d4d4d;
   font-weight: 600;
-  padding: 5px 20px;
+  padding: 10px;
 }
 
 header a:hover {
