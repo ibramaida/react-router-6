@@ -13,6 +13,9 @@ import {
   Reviews,
   HostVans,
   HostVanDetails,
+  HostVanPricing,
+  HostVanPhotos,
+  HostVanInfo,
 } from "./pages/Host";
 
 const App = () => {
@@ -29,7 +32,11 @@ const App = () => {
             <Route path="reviews" element={<Reviews />} />
             <Route path="income" element={<Income />} />
             <Route path="vans" element={<HostVans />} />
-            <Route path="vans/:id" element={<HostVanDetails />} />
+            <Route path="vans/:id" element={<HostVanDetails />}>
+              <Route index element={<HostVanInfo />} />
+              <Route path="pricing" element={<HostVanPricing />} />
+              <Route path="photos" element={<HostVanPhotos />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
