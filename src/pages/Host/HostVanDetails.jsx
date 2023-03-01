@@ -11,6 +11,12 @@ const HostVanDetails = () => {
       .then((data) => sectCurrentVan(data.vans));
   }, [id]);
 
+  const activeStyle = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  };
+
   if (!currentVan) {
     return <h1>Loading...</h1>;
   }
@@ -35,24 +41,24 @@ const HostVanDetails = () => {
           <NavLink
             to="."
             end
-            className={({ isActive }) => (isActive ? "active-link" : null)}
+            style={({ isActive }) => (isActive ? activeStyle : null)}
           >
             details
           </NavLink>
           <NavLink
             to="pricing"
-            className={({ isActive }) => (isActive ? "active-link" : null)}
+            style={({ isActive }) => (isActive ? activeStyle : null)}
           >
             pricing
           </NavLink>
           <NavLink
             to="photos"
-            className={({ isActive }) => (isActive ? "active-link" : null)}
+            style={({ isActive }) => (isActive ? activeStyle : null)}
           >
             photos
           </NavLink>
         </nav>
-        <Outlet />
+        <Outlet context={{ currentVan }} />
       </div>
     </section>
   );
