@@ -1,18 +1,37 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export function loader() {
+  return getVans();
+}
 
 export default function Vans() {
-  const [vans, setVans] = React.useState([]);
+  // const [vans, setVans] = React.useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
+  // const [loading, setLoading] = React.useState(false);
+
+  const vans = useLoaderData();
+  // console.log(data);
 
   const typeFilter = searchParams.get("type");
 
-  React.useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+  // React.useEffect(() => {
+  //   async function loadVans() {
+  //     setLoading(true);
+  //     try {
+  //       const data = await getVans();
+  //       setVans(data);
+  //     } catch (err) {
+  //       console.log("There was an error!");
+  //       console.log(err);
+  //     }
+  //     setLoading(false);
+  //   }
+
+  //   loadVans();
+  // }, []);
 
   const filteredVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
