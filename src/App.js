@@ -9,10 +9,10 @@ import {
 import "./App.css";
 import "./server";
 
-import { Home, About, Page404 } from "./pages";
+import { Home, About, Page404, Login } from "./pages";
 import { Vans, VanDetails } from "./pages/Vans";
 import { loader as vansLoader } from "./pages/Vans/Vans";
-import { HostLayout, Layout } from "./components";
+import { HostLayout, Layout, Error } from "./components";
 import {
   Dashboard,
   Income,
@@ -29,8 +29,14 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="vans" element={<Vans />} loader={vansLoader} />
+      <Route
+        path="vans"
+        element={<Vans />}
+        errorElement={<Error />}
+        loader={vansLoader}
+      />
       <Route path="vans/:id" element={<VanDetails />} />
+      <Route path="login" element={<Login />} />
 
       <Route path="host" element={<HostLayout />}>
         <Route index element={<Dashboard />} />

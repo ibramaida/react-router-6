@@ -15,23 +15,26 @@ const Header = () => {
       </Link>
       <nav>
         <NavLink
-          to="/host"
+          to="host"
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >
           Host
         </NavLink>
         <NavLink
-          to="/about"
+          to="about"
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >
           About
         </NavLink>
         <NavLink
-          to="/vans"
+          to="vans"
           style={({ isActive }) => (isActive ? activeStyle : null)}
         >
           Vans
         </NavLink>
+        <Link to="login" className="login-link">
+          <img src="../assets/images/avatar-icon.png" className="login-icon" />
+        </Link>
       </nav>
     </header>
   );
