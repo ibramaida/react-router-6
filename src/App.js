@@ -10,9 +10,10 @@ import "./App.css";
 import "./server";
 
 import { Home, About, Page404, Login } from "./pages";
+import { action as loginAction } from "./pages/Login";
 import { Vans, VanDetails } from "./pages/Vans";
 import { loader as vansLoader } from "./pages/Vans/Vans";
-import { HostLayout, Layout, Error } from "./components";
+import { HostLayout, Layout, Error, AuthRequired } from "./components";
 import {
   Dashboard,
   Income,
@@ -36,20 +37,23 @@ const router = createBrowserRouter(
         loader={vansLoader}
       />
       <Route path="vans/:id" element={<VanDetails />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login />} action={loginAction} />
 
-      <Route path="host" element={<HostLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="reviews" element={<Reviews />} />
-        <Route path="income" element={<Income />} />
-        <Route path="vans" element={<HostVans />} />
+      <Route element={<AuthRequired />}>
+        <Route path="host" element={<HostLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="income" element={<Income />} />
+          <Route path="vans" element={<HostVans />} />
 
-        <Route path="vans/:id" element={<HostVanDetails />}>
-          <Route index element={<HostVanInfo />} />
-          <Route path="pricing" element={<HostVanPricing />} />
-          <Route path="photos" element={<HostVanPhotos />} />
+          <Route path="vans/:id" element={<HostVanDetails />}>
+            <Route index element={<HostVanInfo />} />
+            <Route path="pricing" element={<HostVanPricing />} />
+            <Route path="photos" element={<HostVanPhotos />} />
+          </Route>
         </Route>
       </Route>
+
       <Route path="*" element={<Page404 />} />
     </Route>
   )

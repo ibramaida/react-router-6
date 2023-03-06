@@ -62,6 +62,11 @@ header a:hover {
   text-decoration: underline;
 }
 
+header .login-icon {
+  height: 18px;
+  width: 18px;
+}
+
 main {
   margin-bottom: 84px;
 }
@@ -531,4 +536,9 @@ i[class*="van-type-"] {
   margin-top: 22px;
   color: white;
   font-family: "Inter", sans-serif;
+}
+
+.login-form > button:disabled {
+  background-color: #aaaaaa;
+  cursor: not-allowed;
 }
