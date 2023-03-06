@@ -39,7 +39,7 @@ const Header = () => {
           Vans
         </NavLink>
         <NavLink to="login" className="login-link">
-          <img src={avatarIcon} className="login-icon" />
+          <img src={avatarIcon} className="login-icon" alt="avatar" />
         </NavLink>
         <button onClick={fakeLogOut}>X</button>
       </nav>
