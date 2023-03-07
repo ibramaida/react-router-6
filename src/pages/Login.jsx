@@ -31,9 +31,12 @@ export default function Login() {
   const from = location.state?.from || "/host";
   const navigation = useNavigation();
 
-  if (data?.token) {
-    navigate(from, { replace: true });
-  }
+  React.useEffect(() => {
+    if (data?.token) {
+      navigate(from, { replace: true });
+    }
+    // eslint-disable-next-line
+  }, [data]);
 
   return (
     <div className="login-container">

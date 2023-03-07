@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  /* outline: 1px solid red; */
 }
 
 html,
@@ -9,6 +8,11 @@ body {
   padding: 0;
   background-color: #fff7ed;
   font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: unset;
+  color: unset;
 }
 
 body::-webkit-scrollbar {
@@ -29,32 +33,23 @@ body {
 header {
   height: 110px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
   padding-block: 10px;
-  padding-inline: 10px;
 }
 
 header .site-logo {
   color: black;
-  /* margin-right: auto; */
+  margin-right: auto;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 25px;
-}
-
-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
 }
 
 header a {
   text-decoration: none;
   color: #4d4d4d;
   font-weight: 600;
-  padding: 10px 0;
+  padding: 5px 20px;
 }
 
 header a:hover {
@@ -65,6 +60,15 @@ header a:hover {
 header .login-icon {
   height: 18px;
   width: 18px;
+}
+
+header .login-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+nav {
+  display: flex;
 }
 
 main {
@@ -94,6 +98,17 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
+}
+
+.back-button {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin-left: 26px;
+}
+
+.back-button span:hover {
+  text-decoration: underline;
 }
 
 .link-button:hover {
@@ -187,6 +202,15 @@ footer {
   padding-inline: 23px;
 }
 
+.van-list-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.van-list-filter-buttons > a {
+  margin-right: 15px;
+}
+
 .van-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -206,14 +230,8 @@ footer {
 }
 
 .van-list-container button {
-  /* margin-right: 20px; */
+  margin-right: 20px;
   cursor: pointer;
-}
-
-.van-list-filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
 .van-type {
@@ -273,7 +291,7 @@ i[class*="van-type-"] {
 }
 
 .van-detail-container {
-  padding: 27px;
+  padding-inline: 27px;
 }
 
 .van-detail-container .back-button {
@@ -281,8 +299,8 @@ i[class*="van-type-"] {
   text-decoration: none;
 }
 
-/* .van-detail-container .back-button:visited {
-} */
+.van-detail-container .back-button:visited {
+}
 
 .van-detail-container .back-button span {
   text-decoration: underline;
@@ -326,14 +344,14 @@ i[class*="van-type-"] {
 
 .host-nav {
   display: flex;
-  gap: 10px;
+  margin-bottom: 30px;
 }
 
 .host-nav a {
   text-decoration: none;
   color: #4d4d4d;
   font-weight: 500;
-  padding: 5px;
+  padding: 5px 20px;
 }
 
 .host-nav a:hover {
@@ -341,14 +359,6 @@ i[class*="van-type-"] {
   text-decoration: underline;
   font-weight: 600;
 }
-
-.host-nav a.active-link {
-  font-weight: bold;
-  text-decoration: underline;
-  color: #161616;
-}
-
-/* Host Vans List */
 
 .host-van-link-wrapper {
   color: unset;
@@ -368,14 +378,17 @@ i[class*="van-type-"] {
   align-items: center;
   background-color: white;
   margin-bottom: 15px;
-  padding-block: 18px;
-  padding-left: 24px;
+  padding: 18px 24px;
 }
 
 .host-van-single > img {
   height: 70px;
   border-radius: 5px;
   margin-right: 17px;
+}
+
+.host-van-info {
+  margin-right: auto;
 }
 
 .host-van-info h3 {
@@ -388,7 +401,6 @@ i[class*="van-type-"] {
   margin-block: 10px;
 }
 
-/* host van details */
 .host-van-detail-layout-container {
   background-color: white;
   padding: 24px;
@@ -416,18 +428,6 @@ i[class*="van-type-"] {
 .host-van-detail-info-text > h4 {
   font-size: 20px;
   margin-block: 0;
-}
-
-.back-button {
-  display: block;
-  color: black;
-  text-decoration: none;
-  margin-top: 60px;
-  margin-left: 26px;
-}
-
-.back-button span:hover {
-  text-decoration: underline;
 }
 
 .host-van-detail-nav {
@@ -490,8 +490,6 @@ i[class*="van-type-"] {
   color: white;
 }
 
-/* login page */
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -536,9 +534,209 @@ i[class*="van-type-"] {
   margin-top: 22px;
   color: white;
   font-family: "Inter", sans-serif;
+  cursor: pointer;
 }
 
 .login-form > button:disabled {
   background-color: #aaaaaa;
   cursor: not-allowed;
+}
+
+.login-error {
+  color: red;
+}
+
+.host-dashboard-earnings {
+  background-color: #ffead0;
+  padding: 37px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.host-dashboard-earnings > .info > h1 {
+  font-size: 36px;
+  color: #161616;
+  margin: 0;
+}
+
+.host-dashboard-earnings > .info > p {
+  color: #4d4d4d;
+}
+
+.host-dashboard-earnings > .info > p > span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.host-dashboard-earnings > .info > h2 {
+  margin: 0;
+  font-size: 38px;
+  color: #161616;
+  font-weight: 900;
+}
+
+.host-dashboard-reviews {
+  background-color: #ffddb2;
+  padding: 25px 26px;
+  display: flex;
+  align-items: center;
+}
+
+.host-dashboard-reviews > h2 {
+  margin: 0;
+}
+
+.host-dashboard-reviews .star {
+  color: #ff8c38;
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+.host-dashboard-reviews p {
+  margin-left: 5px;
+  font-size: 20px;
+  color: #4d4d4d;
+  margin-right: auto;
+}
+
+.host-dashboard-reviews p > span {
+  font-weight: bold;
+  color: #161616;
+}
+
+.host-dashboard-vans {
+  padding: 38px 26px;
+}
+
+.host-dashboard-vans > .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.host-dashboard-vans .host-vans-list {
+  padding-inline: 0;
+}
+
+.host-income {
+  padding-inline: 26px;
+  color: #161616;
+}
+
+.host-income > p {
+  color: #4d4d4d;
+}
+
+.host-income > p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.host-income > h2 {
+  font-size: 38px;
+  color: #161616;
+  font-weight: 900;
+}
+
+img.graph {
+  width: 100%;
+  max-width: 500px;
+}
+
+.host-income .info-header > p {
+  color: #4d4d4d;
+}
+
+.host-income .info-header > p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.host-income .info-header > h3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 60px;
+}
+
+.host-income .transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 31px;
+  padding: 35px 29px;
+  border-radius: 6px;
+}
+.host-income .transaction > h3 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.host-income .transaction > p {
+  font-weight: 500;
+  font-size: 20px;
+  color: #4d4d4d;
+}
+
+.host-reviews {
+  padding-inline: 26px;
+  color: #161616;
+}
+
+.host-reviews .top-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.host-reviews .top-text > h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.host-reviews .top-text > p {
+  margin: 0;
+  color: #4d4d4d;
+}
+
+.host-reviews .top-text > p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.host-reviews > img {
+  margin-bottom: 36px;
+}
+
+.host-reviews .review {
+  margin-block: 25px;
+}
+
+.host-reviews .review .info {
+  display: flex;
+}
+
+.host-reviews .review .name {
+  color: #161616;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.host-reviews .review .date {
+  color: #8c8c8c;
+}
+
+.host-reviews hr {
+  background-color: #c7c7c7;
+  height: 1px;
+  border: 0;
+}
+
+.host-reviews .review-star {
+  color: #ff8c38;
+  margin-right: 5px;
 }
