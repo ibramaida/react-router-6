@@ -8,10 +8,11 @@ import {
   useLoaderData,
 } from "react-router-dom";
 
-import { getHostVans } from "../../api";
+// import { getHostVans } from "../../api";
+import { getVan } from "../../api/firebase";
 
 export function loader({ params }) {
-  return defer({ van: getHostVans(params.id) });
+  return defer({ van: getVan(params.id) });
 }
 
 const HostVanDetails = () => {
